@@ -16,13 +16,13 @@
 
 // ** MySQL ayarları - Bu bilgileri sunucunuzdan alabilirsiniz ** //
 /** WordPress için kullanılacak veritabanının adı */
-define('DB_NAME', 'admin_serkandb');
+define('DB_NAME', 'srkn_srknkcc');
 
 /** MySQL veritabanı kullanıcısı */
-define('DB_USER', 'admin_serkanuser');
+define('DB_USER', 'srkn_srknkcc');
 
 /** MySQL veritabanı parolası */
-define('DB_PASSWORD', 'KZurJTffnXM7cC73');
+define('DB_PASSWORD', 'ryfXmHGL*34#');
 
 /** MySQL sunucusu */
 define('DB_HOST', 'localhost');
