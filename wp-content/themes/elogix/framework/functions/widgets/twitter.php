@@ -29,8 +29,8 @@ class widget_twitter extends WP_Widget {
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
 		echo '<ul id="twitter_update_list"><li>Loading Feed.</li></ul>';
-		echo '<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>';
-		echo '<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/'.$username.'.json?callback=twitterCallback2&amp;count='.$posts.'"></script>';
+		echo '<script type="text/javascript" src="https://twitter.com/javascripts/blogger.js"></script>';
+		echo '<script type="text/javascript" src="https://twitter.com/statuses/user_timeline/'.$username.'.json?callback=twitterCallback2&amp;count='.$posts.'"></script>';
 		echo $after_widget;
 		// ------
 	}
