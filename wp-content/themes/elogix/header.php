@@ -116,7 +116,7 @@
 			<div id="social" class="clearfix">
 				<ul>
 					<?php if ( of_get_option('twitter_url') ) { ?>
-						<li class="twitter"><a href="http://twitter.com/<?php echo of_get_option('twitter_url'); ?>" target="_blank" title="Twitter">
+						<li class="twitter"><a href="https://twitter.com/<?php echo of_get_option('twitter_url'); ?>" target="_blank" title="Twitter">
 							<?php _e('Twitter', 'framework'); ?>	
 						</a></li>
 					<?php } ?>
