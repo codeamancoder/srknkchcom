@@ -36,9 +36,7 @@
 	
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
 	<?php wp_head(); ?>
-	
 	<?php
 	if( !is_404() ){
 		if ( get_post_meta( get_the_ID(), 'minti_bgimage', true ) != '' 
@@ -85,9 +83,7 @@
     </style>
     
     <?php } }  ?>
-    
 </head>
-
 <body <?php body_class(); ?>>
 	
 	<div id="wrap">

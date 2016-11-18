@@ -4,8 +4,12 @@ function wp_smtp_admin(){
 }
 
 function wp_smtp_page(){
+	$ws_nonce = wp_create_nonce('my_ws_nonce');
 	global $wsOptions;
-	if(isset($_POST['wp_smtp_update'])){
+	if(isset($_POST['wp_smtp_update']) && isset($_POST['wp_smtp_nonce_update'])){
+		if(!wp_verify_nonce(trim($_POST['wp_smtp_nonce_update']),'my_ws_nonce')){
+			wp_die('Security check not passed!');
+		}
 		$wsOptions = array();
 		$wsOptions["from"] = trim($_POST['wp_smtp_from']);
 		$wsOptions["fromname"] = trim($_POST['wp_smtp_fromname']);
@@ -27,7 +31,10 @@ function wp_smtp_page(){
 			echo '<div id="message" class="updated fade"><p><strong>' . __("Options saved.","WP-SMTP") . '</strong></p></div>';
 		}
 	}
-	if(isset($_POST['wp_smtp_test'])){
+	if(isset($_POST['wp_smtp_test']) && isset($_POST['wp_smtp_nonce_test'])){
+		if(!wp_verify_nonce(trim($_POST['wp_smtp_nonce_test']),'my_ws_nonce')){
+			wp_die('Security check not passed!');
+		}
 		$to = trim($_POST['wp_smtp_to']);
 		$subject = trim($_POST['wp_smtp_subject']);
 		$message = trim($_POST['wp_smtp_message']);
@@ -187,6 +194,7 @@ WP SMTP
 
 <p class="submit">
 <input type="hidden" name="wp_smtp_update" value="update" />
+<input type="hidden" name="wp_smtp_nonce_update" value="<?php echo $ws_nonce; ?>" />
 <input type="submit" class="button-primary" name="Submit" value="<?php _e('Save Changes'); ?>" />
 </p>
 
@@ -227,23 +235,24 @@ WP SMTP
 </table>
 <p class="submit">
 <input type="hidden" name="wp_smtp_test" value="test" />
+<input type="hidden" name="wp_smtp_nonce_test" value="<?php echo $ws_nonce; ?>" />
 <input type="submit" class="button-primary" value="<?php _e('Send Test','WP-SMTP'); ?>" />
 </p>
 </form>
 
 <br />
 <?php $donate_url = plugins_url('/img/paypal_32_32.jpg', __FILE__);?>
-<?php $paypal_donate_url = plugins_url('/img/btn_donateCC_LG.gif', __FILE__);?>
-<?php $ali_donate_url = plugins_url('/img/alipay_donate.png', __FILE__);?>
+<?php $paypal_donate_url = plugins_url('/img/paypal_donate_email.jpg', __FILE__);?>
+<?php $ali_donate_url = plugins_url('/img/alipay_donate_email.jpg', __FILE__);?>
 <div class="icon32"><img src="<?php echo $donate_url; ?>" alt="Donate" /></div>
 <h2>Donate</h2>
 <p>
 If you find my work useful and you want to encourage the development of more free resources, you can do it by donating.
 </p>
 <p>
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SKA6TPPWSATKG&item_name=BoLiQuan&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=CA&bn=PP%2dDonationsBF&charset=UTF%2d8" target="_blank"><img src="<?php echo $paypal_donate_url; ?>" alt="Paypal Donate" title="Paypal" /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SCWY6NPFRR8EY" target="_blank"><img src="<?php echo $paypal_donate_url; ?>" alt="Paypal Donate" title="Paypal" /></a>
 &nbsp;
-<a href="https://me.alipay.com/boliquan" target="_blank"><img src="<?php echo $ali_donate_url; ?>" alt="Alipay Donate" title="Alipay" /></a>
+<a href="https://www.alipay.com/" target="_blank"><img src="<?php echo $ali_donate_url; ?>" alt="Alipay Donate" title="Alipay" /></a>
 </p>
 <br />
 
@@ -251,17 +260,17 @@ If you find my work useful and you want to encourage the development of more fre
 <div class="icon32"><img src="<?php echo $blq_logo_url; ?>" alt="BoLiQuan" /></div>
 <h2>Related Links</h2>
 <ul style="margin:0 18px;">
-<li><a href="http://boliquan.com/wp-smtp/" target="_blank">WP SMTP (FAQ)</a> | <a href="http://wordpress.org/extend/plugins/wp-smtp/" target="_blank">Usage</a> | <a href="http://wordpress.org/extend/plugins/wp-smtp/" target="_blank">Download</a></li>
-<li><a href="http://boliquan.com/wp-clean-up/" target="_blank">WP Clean Up</a> | <a href="http://wordpress.org/extend/plugins/wp-clean-up/" target="_blank">Download</a></li>
-<li><a href="http://boliquan.com/wp-anti-spam/" target="_blank">WP Anti Spam</a> | <a href="http://wordpress.org/extend/plugins/wp-anti-spam/" target="_blank">Download</a></li>
-<li><a href="http://boliquan.com/wp-code-highlight/" target="_blank">WP Code Highlight</a> | <a href="http://wordpress.org/extend/plugins/wp-code-highlight/" target="_blank">Download</a></li>
-<li><a href="http://boliquan.com/wp-slug-translate/" target="_blank">WP Slug Translate</a> | <a href="http://wordpress.org/extend/plugins/wp-slug-translate/" target="_blank">Download</a></li>
-<li><a href="http://boliquan.com/yg-share/" target="_blank">YG Share</a> | <a href="http://wordpress.org/extend/plugins/yg-share/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/wp-smtp/" target="_blank">WP SMTP (FAQ)</a> | <a href="http://wordpress.org/plugins/wp-smtp/" target="_blank">Usage</a> | <a href="http://wordpress.org/plugins/wp-smtp/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/wp-clean-up/" target="_blank">WP Clean Up</a> | <a href="http://wordpress.org/plugins/wp-clean-up/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/wp-anti-spam/" target="_blank">WP Anti Spam</a> | <a href="http://wordpress.org/plugins/wp-anti-spam/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/wp-code-highlight/" target="_blank">WP Code Highlight</a> | <a href="http://wordpress.org/plugins/wp-code-highlight/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/wp-slug-translate/" target="_blank">WP Slug Translate</a> | <a href="http://wordpress.org/plugins/wp-slug-translate/" target="_blank">Download</a></li>
+<li><a href="http://boliquan.com/yg-share/" target="_blank">YG Share</a> | <a href="http://wordpress.org/plugins/yg-share/" target="_blank">Download</a></li>
 <li><a href="http://boliquan.com/ylife/" target="_blank">YLife</a> | <a href="http://code.google.com/p/ylife/downloads/list" target="_blank">Download</a></li>
 <li><a href="http://boliquan.com/" target="_blank">BoLiQuan</a></li>
 </ul>
 
-<div style="text-align:center; margin:60px 0 10px 0;">&copy; <?php echo date("Y"); ?> BoLiQuan</div>
+<div style="text-align:center; margin:60px 0 10px 0;">&copy; <?php echo date("Y"); ?> BoLiQuan.COM</div>
 
 </div>
 <?php 

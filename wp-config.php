@@ -58,7 +58,7 @@ define('NONCE_SALT',       'q(}T*SsMo>B ~|JXBBc_F7b9$U!V6v^,Kt![Np3|x/>&K?JM~#qf
  * Tüm kurulumlara ayrı bir önek vererek bir veritabanına birden fazla kurulum yapabilirsiniz.
  * Sadece rakamlar, harfler ve alt çizgi lütfen.
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'dlaht_';
 
 /**
  * WordPress yerel dil dosyası, varsayılan ingilizce.
@@ -87,3 +87,5 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+//Disable File Edits
+define('DISALLOW_FILE_EDIT', true);
