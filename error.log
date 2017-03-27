@@ -1356,3 +1356,10 @@
 [Sat Mar 25 10:02:21 2017] [crit] [client 162.158.18.37] mod_spamhaus: address 162.158.18.37 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered, referer: https://www.serkankoch.com/wp-login.php
 [Sat Mar 25 10:52:55 2017] [error] [client 108.162.216.187] client denied by server configuration: /home/srkn/public_html/xmlrpc.php
 [Sat Mar 25 11:05:55 2017] [crit] [client 173.245.53.73] mod_spamhaus: address 173.245.53.73 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered, referer: https://www.serkankoch.com/wp-login.php
+[Sat Mar 25 16:52:34 2017] [crit] [client 141.101.76.37] mod_spamhaus: address 141.101.76.37 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered, referer: https://www.serkankoch.com/wp-login.php
+[Sat Mar 25 19:49:28 2017] [crit] [client 162.158.90.225] mod_spamhaus: address 162.158.90.225 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered
+[Sat Mar 25 20:57:35 2017] [error] [client 162.158.91.242] client denied by server configuration: /home/srkn/public_html/xmlrpc.php, referer: http://serkankoch.com/xmlrpc.php
+[Sun Mar 26 00:14:37 2017] [crit] [client 141.101.76.49] mod_spamhaus: address 141.101.76.49 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered, referer: https://www.serkankoch.com/wp-login.php
+[Sun Mar 26 02:03:39 2017] [error] [client 141.101.105.177] client denied by server configuration: /home/srkn/public_html/xmlrpc.php
+[Mon Mar 27 12:14:42 2017] [crit] [client 162.158.90.225] mod_spamhaus: address 162.158.90.225 is blacklisted but it's not in the 127.0.0.0/8 range. POSSIBLE WILD-CARDING TYPOSQUATTERS ATTACK! IP address will not get filtered
+[Mon Mar 27 14:18:16 2017] [error] [client 172.68.11.68] client denied by server configuration: /home/srkn/public_html/xmlrpc.php
